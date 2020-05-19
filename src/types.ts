@@ -40,6 +40,7 @@ export type ReactNativeTools = {
     template?: string
     skipJest?: boolean
     useNpm?: boolean
+    skipInstall?: boolean
   }): Promise<IgniteRNInstallResult>
 }
 

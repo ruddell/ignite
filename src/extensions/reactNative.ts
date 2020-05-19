@@ -18,7 +18,14 @@ function attach(toolbox: IgniteToolbox) {
    * Installs React Native.
    */
   async function install(
-    opts: { name?: string; version?: string; template?: string; skipJest?: boolean; useNpm?: boolean } = {},
+    opts: {
+      name?: string
+      version?: string
+      template?: string
+      skipJest?: boolean
+      useNpm?: boolean
+      skipInstall?: boolean
+    } = {},
   ): Promise<IgniteRNInstallResult> {
     //  grab the name & version
     const name = opts.name || parameters.first
@@ -44,6 +51,9 @@ function attach(toolbox: IgniteToolbox) {
     }
     if (opts.useNpm) {
       rnOptions.push('--npm')
+    }
+    if (opts.skipInstall) {
+      rnOptions.push('--skip-install')
     }
 
     // react-native init
